@@ -3,70 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestra Historia</title>
+    <title>Marianita de Jesus Sevillas</title>
     <style>
+        /* Estilos Generales */
         body { 
-            font-family: 'Georgia', serif; 
-            background-color: #ffffff; 
+            font-family: 'Papyrus', fantasy, serif; /* Una fuente más antigua */
+            background-color: #fcf6e5; 
             color: #4b3621; 
             margin: 0; 
             padding: 0; 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
         
         header { padding: 40px 20px; text-align: center; }
-        h1 { color: #8b4513; font-size: 2.5rem; margin-bottom: 10px; }
+        h1 { color: #8b4513; font-size: 2.2rem; margin-bottom: 10px; font-weight: bold; }
 
-        /* Contenedor de cada bloque (Foto + Pergamino) */
-        .bloque-recuerdo {
-            max-width: 600px;
-            width: 90%;
-            margin-bottom: 80px; /* Espacio entre cada pareja de foto/texto */
+        /* EL PERGAMINO CON FONDO DE IMAGEN */
+        .seccion-pergamino {
+            padding: 50px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* Estilo de la Foto */
+        .pergamino {
+            position: relative;
+            background-image: url('pergamino.png'); /* LA CLAVE: Tu imagen de fondo */
+            background-size: 100% 100%; /* Ajusta la imagen al tamaño del div */
+            background-repeat: no-repeat;
+            background-position: center;
+            padding: 100px 70px 70px 70px; /* Padding ajustado para dejar espacio a los bordes */
+            max-width: 600px;
+            width: 100%;
+            min-height: 800px; /* Altura mínima para que se vea todo el pergamino */
+            box-sizing: border-box; /* Incluye padding en el ancho/alto */
+            margin-bottom: 40px;
+        }
+
+        .frase-box p {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 50px; /* Separación entre dedicatorias */
+            padding-bottom: 15px;
+            color: #3e2814; /* Color de tinta de pluma */
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.1); /* Efecto de tinta antigua */
+        }
+        
+        /* Línea separadora tenue */
+        .frase-box p::after {
+            content: "";
+            display: block;
+            width: 50%;
+            height: 1px;
+            background: rgba(139, 69, 19, 0.3);
+            margin: 20px auto 0;
+        }
+
+        .frase-box p:last-child::after { display: none; } /* No poner línea tras la última */
+
+        /* GALERÍA DE IMÁGENES */
+        .galeria-titulo { margin-top: 60px; font-size: 1.8rem; color: #8b4513; text-align: center; }
+        .galeria { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 20px; 
+            max-width: 1100px; 
+            margin: 30px auto; 
+            padding: 20px; 
+        }
         .foto-card { 
             background: white; 
             padding: 15px; 
             border: 1px solid #ddd;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            width: 100%;
-            box-sizing: border-box;
-            margin-bottom: -20px; /* Hace que se acerque un poco al pergamino */
-            z-index: 2;
-            transform: rotate(-1deg);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: rotate(-2deg); /* Efecto foto pegada */
+            transition: transform 0.3s;
         }
-        .foto-card img { width: 100%; display: block; border-radius: 2px; }
-
-        /* Estilo del Pergamino para la dedicatoria */
-        .pergamino-dedicatoria {
-            position: relative;
-            background-image: url('pergamino.png'); /* Usa tu imagen subida */
-            background-size: 100% 100%;
-            background-repeat: no-repeat;
-            padding: 80px 60px; /* Espacio interno para que el texto no toque los bordes */
-            width: 100%;
-            min-height: 400px;
-            box-sizing: border-box;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1;
-        }
-
-        .texto-dedicatoria {
-            font-size: 1.3rem;
-            line-height: 1.6;
-            font-style: italic;
-            text-align: center;
-            color: #3e2814;
-            font-family: 'Papyrus', fantasy, serif;
-        }
+        .foto-card:nth-child(even) { transform: rotate(2deg); }
+        .foto-card:hover { transform: rotate(0deg) scale(1.05); z-index: 10; }
+        .foto-card img { width: 100%; display: block; }
 
         footer { text-align: center; padding: 50px; color: #6b4423; font-size: 0.9rem; }
     </style>
@@ -74,46 +90,37 @@
 <body>
 
     <header>
-        <h1>Nuestros Momentos ❤️</h1>
-        <p>Cada imagen tiene una historia que contar</p>
+        <h1>Marianita de Jesus Sevillas</h1>
+        <p>De parte de tus hijos y nietos</p>
     </header>
 
-    <div class="bloque-recuerdo">
-        <div class="foto-card">
-            <img src="foto1.jpeg" alt="Momento 1">
-        </div>
-        <div class="pergamino-dedicatoria">
-            <div class="texto-dedicatoria">
-                "Aquí escribes la dedicatoria para la primera foto. Es el lugar perfecto para recordar qué sentiste en ese momento."
+    <section class="seccion-pergamino">
+        <div class="pergamino">
+            <div class="frase-box">
+                <p>"Aquí va tu primera dedicatoria, escrita sobre el papel envejecido del pergamino."</p>
+                
+                <p>"Esta es la segunda frase, separada de la anterior para que se lea cómodamente."</p>
+                
+                <p>"Puedes añadir tantas como quieras copiando esta línea."</p>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="bloque-recuerdo">
+    <h2 class="galeria-titulo">Nuestros Recuerdos Visuales</h2>
+    <section class="galeria">
         <div class="foto-card">
-            <img src="foto2.jpeg" alt="Momento 2">
+            <img src="foto1.jpeg" alt="Foto 1">
         </div>
-        <div class="pergamino-dedicatoria">
-            <div class="texto-dedicatoria">
-                "Esta es la dedicatoria para la segunda foto. El pergamino se adapta para que tus palabras luzcan increíbles."
-            </div>
-        </div>
-    </div>
-
-    <div class="bloque-recuerdo">
         <div class="foto-card">
-            <img src="foto3.jpeg" alt="Momento 3">
+            <img src="foto2.jpeg" alt="Foto 2">
         </div>
-        <div class="pergamino-dedicatoria">
-            <div class="texto-dedicatoria">
-                "Y aquí otra frase más. Puedes repetir este bloque tantas veces como fotos tengas."
-            </div>
+        <div class="foto-card">
+            <img src="foto3.jpeg" alt="Foto 3">
         </div>
-    </div>
+    </section>
 
     <footer>
-        <p>Hecho con mucho amor</p>
-        <p>Escanea el QR para volver siempre aquí</p>
+        <p>Escanea el código QR para volver siempre a este momento.</p>
     </footer>
 
 </body>
