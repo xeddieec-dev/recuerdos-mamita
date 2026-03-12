@@ -5,32 +5,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuestro Rincón Especial</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f9f9f9; text-align: center; color: #333; margin: 0; padding: 20px; }
-        header { margin-bottom: 30px; }
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; max-width: 1000px; margin: 0 auto; }
-        .card { background: white; padding: 10px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .card img { width: 100%; border-radius: 5px; }
-        .phrase { font-style: italic; margin-top: 10px; color: #555; }
-        h1 { color: #ff4b5c; }
+        /* Estilos Generales */
+        body { 
+            font-family: 'Georgia', serif; 
+            background-color: #f4eade; 
+            color: #4b3621; 
+            margin: 0; 
+            padding: 0; 
+        }
+        
+        header { padding: 40px 20px; text-align: center; }
+        h1 { color: #8b4513; font-size: 2.2rem; margin-bottom: 10px; }
+
+        /* EL PERGAMINO */
+        .seccion-pergamino {
+            padding: 50px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .pergamino {
+            position: relative;
+            background: #fdf5e6; /* Color papel viejo */
+            background: linear-gradient(to right, #e2d1b0 0%, #fdf5e6 5%, #fdf5e6 95%, #e2d1b0 100%);
+            padding: 40px 50px;
+            max-width: 600px;
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-left: 2px solid #d2b48c;
+            border-right: 2px solid #d2b48c;
+        }
+
+        /* Efecto de rollos del pergamino arriba y abajo */
+        .pergamino::before, .pergamino::after {
+            content: "";
+            position: absolute;
+            height: 20px;
+            width: 105%;
+            background: #d2b48c;
+            left: -2.5%;
+            border-radius: 10px;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .pergamino::before { top: -10px; }
+        .pergamino::after { bottom: -10px; }
+
+        .frase-box p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 1px dashed #d2b48c;
+            padding-bottom: 20px;
+        }
+        .frase-box p:last-child { border-bottom: none; }
+
+        /* GALERÍA DE IMÁGENES */
+        .galeria-titulo { margin-top: 60px; font-size: 1.8rem; color: #8b4513; text-align: center; }
+        .galeria { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 20px; 
+            max-width: 1100px; 
+            margin: 30px auto; 
+            padding: 20px; 
+        }
+        .foto-card { 
+            background: white; 
+            padding: 15px; 
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: rotate(-2deg); /* Efecto foto pegada */
+            transition: transform 0.3s;
+        }
+        .foto-card:nth-child(even) { transform: rotate(2deg); }
+        .foto-card:hover { transform: rotate(0deg) scale(1.05); z-index: 10; }
+        .foto-card img { width: 100%; display: block; }
+
+        footer { text-align: center; padding: 50px; color: #6b4423; font-size: 0.9rem; }
     </style>
 </head>
 <body>
+
     <header>
-        <h1>Marianita de Jesus Sevilla</h1>
-        <p>De parte de tus hijos y nietos ❤️</p>
+        <h1>Nuestra Historia ❤️</h1>
+        <p>Palabras que nacen del corazón</p>
     </header>
 
-    <div class="gallery">
-        <div class="card">
-            <img src="foto1.jpeg" alt="Recuerdo 1">
-            <p class="phrase">"Frase 1."</p>
+    <section class="seccion-pergamino">
+        <div class="pergamino">
+            <div class="frase-box">
+                <p>"Aquí va tu primera dedicatoria. El texto se verá sobre este fondo de papel antiguo."</p>
+                <p>"Segunda dedicatoria. Puedes escribir párrafos largos y se adaptarán al pergamino."</p>
+                <p>"¡Eres lo más especial del mundo!"</p>
+            </div>
         </div>
-        <div class="card">
-            <img src="foto2.jpeg" alt="Recuerdo 2">
-            <p class="phrase">"Frase 2."</p>
-        </div>
-    </div>
-</body>
+    </section>
 
+    <h2 class="galeria-titulo">Nuestros Recuerdos</h2>
+    <section class="galeria">
+        <div class="foto-card">
+            <img src="foto1.jpeg" alt="Foto 1">
+        </div>
+        <div class="foto-card">
+            <img src="foto2.jpeg" alt="Foto 2">
+        </div>
+    </section>
+
+    <footer>
+        <p>Escanea el código QR para revivir estos momentos.</p>
+    </footer>
+
+</body>
 </html>
 
