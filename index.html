@@ -92,7 +92,7 @@
         footer { text-align: center; padding: 60px; color: #6b4423; font-size: 0.9rem; }
     </style>
 </head>
-<body>
+<bodybody onclick="iniciarMusica()">
 
     <header>
         <h1>Marianita de Jesus Sevilla</h1>
@@ -144,9 +144,21 @@
     <footer>
         <p>Escanea el código QR para volver siempre a este momento.</p>
     </footer>
+    <audio id="musicaFondo" src="musica.mp3" loop></audio>
 
+    <script>
+        function iniciarMusica() {
+            var audio = document.getElementById("musicaFondo");
+            // Intenta reproducir el audio
+            audio.play().catch(function(error) {
+                console.log("Esperando interacción del usuario...");
+            });
+        }
+    </script>
+    
 </body>
 </html>
+
 
 
 
