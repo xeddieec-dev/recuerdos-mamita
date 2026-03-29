@@ -87,6 +87,22 @@
                 text-align: center;
                 font-size: 1.1rem;
             }
+            /* Estilo para el aviso de música */
+        .aviso-musica {
+            text-align: center;
+            color: #8b4513;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin: 10px 0;
+            cursor: pointer;
+            animation: parpadeo 2s infinite;
+        }
+
+        @keyframes parpadeo {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
         }
 
         footer { text-align: center; padding: 60px; color: #6b4423; font-size: 0.9rem; }
